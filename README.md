@@ -1,0 +1,2 @@
+# MusicOrder
+曲順決めるSAT作りたい意思とkotlin書いてみたいという意思
