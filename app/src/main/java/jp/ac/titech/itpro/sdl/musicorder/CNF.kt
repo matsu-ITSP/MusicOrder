@@ -3,9 +3,9 @@ package jp.ac.titech.itpro.sdl.musicorder
 import android.util.Log
 
 class CNF(tracknum : Int) {
+    val tracknum :Int = tracknum
     var cnf : String = ""
     val logTag = "CNF"
-    val trackN : Int = 0
 
     init{
         val tempList = (1..tracknum).toList()
@@ -44,7 +44,14 @@ class CNF(tracknum : Int) {
     //引数の二つは連続しない
     fun noSequencial(poi1 : Int , poi2:Int):String{
         var ans:String = ""
-
+        //poi1が先,(poi1-1)*n+iと(poi2-1)*n+i+1が連続しない
+        for(i in 1..(tracknum-1)) {
+            ans += "-${(poi1-1)*tracknum+i} -${(poi2-1)*tracknum+i+1} 0\n"
+        }
+        //poi2が先,(poi2-1)*n+iと(poi1-1)*n+i+1が連続しない
+        for(i in 1..(tracknum-1)) {
+            ans += "-${(poi2-1)*tracknum+i} -${(poi1-1)*tracknum+i+1} 0\n"
+        }
         return ans
     }
 }
