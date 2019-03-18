@@ -56,7 +56,16 @@ class CNF(val tracknum: Int) {
         cnf += ans
     }
 
-    //
+    //list 中の一つが n曲目
+    fun setOneOfListToN(ls: List<Int>, no: Int) {
+        var ans: String = ""
+        for (item in ls) {
+            ans += "${(item - 1) * tracknum + no} "
+        }
+        ans += "0\n"
+        cnf += ans
+    }
+
     fun getCNF(): String {
         val header = "p cnf"
         val variables = tracknum * tracknum

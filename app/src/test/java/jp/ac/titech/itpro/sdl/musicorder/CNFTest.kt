@@ -49,4 +49,11 @@ class CNFTest {
         poi.noSequencial(1, 3);
         Assert.assertEquals("", Solver.main(poi.getCNF()))
     }
+    @Test
+    fun setOneOfListToNTest(){
+        val poi = CNF(3)
+        poi.noSequencial(1,2)
+        poi.setOneOfListToN(listOf(1),3)
+        Assert.assertEquals("", Solver.main(poi.getCNF()))
+    }
 }
